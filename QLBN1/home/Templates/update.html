@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Bệnh Nhân </title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="mt-5">
+
+        <div class="container">
+            <h1 class="mb-5">Cập nhật thông tin bệnh nhân</h1>
+            <form method="post" action="/update/{{item_patient.idP}}/">
+                {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="form-label">ID bệnh nhân:</label>
+                        <input type="text" class="form-control" name="nameID" value={{item_patient.idP}} required> 
+                       <div class="mb-3">
+                            <label for="name" class="form-label">Tên bệnh nhân:</label>
+                            <input type="text" class="form-control" name="nameP" {{item_patient.nameP}}  required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="DOB" class="form-label">Ngày sinh bênh nhân:</label>
+                            <input type="date" class="form-control" name="DOB"{{item_patient.Dob}} required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sex" class="form-label">Giới tính:</label>
+                            <input type="bool" class="form-control" name="sex" {{item_patient.gender}} required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone_number" class="form-label">Số điện thoại:</label>
+                            <input type="text" class="form-control" name="phone_number" {{item_patient.Phone_Number}}required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address " class="form-label">Đia chỉ:</label>
+                            <input type="text" class="form-control" name="address" {{item_patient.Address}} required>
+                <a href="/" class="btn btn-danger mr-1">Quay Lại</a>
+                <button type="submit" class="btn btn-info">Cập nhật</button>
+            </form>
+        </div>
+
+    </div>
+    <!-- Scripts for Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
